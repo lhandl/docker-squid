@@ -8,3 +8,15 @@ Run squid as a caching proxy in a docker container:
 And then time a few http requests through the proxy with something like:
 
     time curl --proxy http://localhost:3128 http://SOME-BIG-FILE
+
+
+
+Usage:
+      docker run -d --name="docker-squid" [-e "CACHE_PEER=user:escape_password@parent.proxy.example.com:8080"] -p <HostPort>:8888 docker-squid
+
+          - Set CACHE_PEER to an url of your parent (upstream) proxy. Supports login authentication.
+
+      Examples:
+          docker run -d --name="docker-squid" -p 5555:8888 -e "CACHE_PEER=user:p%42ssword@otherproxy:8080" docker-squid
+
+

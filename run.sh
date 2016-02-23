@@ -21,6 +21,7 @@ if [ -n "${CACHE_PEER}" ]; then
 		host=$hostport
 	fi
 	echo "cache_peer $host parent $port 0 no-query default login=$userpass" >> /etc/squid/squid.conf
+	echo "never_direct allow all" >> /etc/squid/squid.conf
 fi
 
 # -X verbose debug logging

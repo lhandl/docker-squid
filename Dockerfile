@@ -1,6 +1,6 @@
 FROM centos:centos7
 MAINTAINER lothar.handl@3beg.at
-RUN yum install -y squid nc
+RUN http_proxy=http://proxy:8080 https_proxy=http://proxy:8080 yum install -y squid nc
 ENV TZ Europe/Vienna
 ADD squid.conf /etc/squid/squid.conf
 ADD run.sh /run.sh
